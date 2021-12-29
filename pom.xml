@@ -210,7 +210,7 @@
         <profile>
             <id>test</id>
             <activation>
-                <!-- default Spring profiles -->
+                <!-- default spring profile -->
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
