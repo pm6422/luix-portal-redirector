@@ -202,7 +202,7 @@
                 <artifactId>maven-war-plugin</artifactId>
                 <configuration>
                     <warSourceDirectory>src/main/webapp/</warSourceDirectory>
-                    <!--uncomment it if use the undertow-->
+                    <!--uncomment it if you use the undertow-->
                     <packagingExcludes>WEB-INF/lib/tomcat-*.jar</packagingExcludes>
                     <failOnMissingWebXml>false</failOnMissingWebXml>
                     <webResources>
