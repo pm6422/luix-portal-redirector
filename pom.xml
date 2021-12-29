@@ -10,7 +10,7 @@
     <groupId>org.infinity</groupId>
     <artifactId>luix-portal-redirector</artifactId>
     <version>1.0.0</version>
-    <packaging>jar</packaging>
+    <packaging>war</packaging>
     <name>${project.artifactId}</name>
     <!--
         *************************************************************************************
@@ -24,7 +24,6 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <maven.version>3.0.0</maven.version>
         <springfox.version>2.7.0</springfox.version>
-        <start-class>org.infinity.luix.portalredirector.LuixPortalRedirectorLauncher</start-class>
     </properties>
     <!--
         *************************************************************************************
@@ -165,7 +164,6 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>${spring-boot.version}</version>
                 <configuration>
-                    <mainClass>${start-class}</mainClass>
                     <fork>true</fork>
                     <!--
                     Enable the line below to have remote debugging of your application on port 5005
@@ -198,6 +196,26 @@
                         <phase>package</phase>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <configuration>
+                    <warSourceDirectory>src/main/webapp/</warSourceDirectory>
+                    <!--uncomment it if use the undertow-->
+                    <packagingExcludes>WEB-INF/lib/tomcat-*.jar</packagingExcludes>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                    <webResources>
+                        <webResource>
+                            <targetPath>/app/</targetPath>
+                            <filtering>true</filtering>
+                            <directory>src/main/resources/templates</directory>
+                            <includes>
+                                <include>app.constants.js</include>
+                            </includes>
+                        </webResource>
+                    </webResources>
+                </configuration>
             </plugin>
         </plugins>
     </build>
