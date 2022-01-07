@@ -5,7 +5,7 @@ cd `dirname $0`
 # Set variables
 #------------------------------------------------------------------------------------------------------------
 appName="${project.build.finalName}.${project.packaging}"
-serverPort=${app.server.port}
+serverPort=80
 
 #------------------------------------------------------------------------------------------------------------
 # Check the existing process
