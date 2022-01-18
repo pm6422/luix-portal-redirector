@@ -121,34 +121,6 @@
                 <artifactId>maven-resources-plugin</artifactId>
                 <executions>
                     <execution>
-                        <id>default-resources</id>
-                        <goals>
-                            <goal>copy-resources</goal>
-                        </goals>
-                        <phase>validate</phase>
-                        <configuration>
-                            <outputDirectory>target/classes</outputDirectory>
-                            <resources>
-                                <resource>
-                                    <directory>src/main/resources/</directory>
-                                    <filtering>true</filtering>
-                                    <includes>
-                                        <include>**/*.xml</include>
-                                        <include>**/*.yml</include>
-                                    </includes>
-                                </resource>
-                                <resource>
-                                    <directory>src/main/resources/</directory>
-                                    <filtering>false</filtering>
-                                    <excludes>
-                                        <exclude>**/*.xml</exclude>
-                                        <exclude>**/*.yml</exclude>
-                                    </excludes>
-                                </resource>
-                            </resources>
-                        </configuration>
-                    </execution>
-                    <execution>
                         <id>default-testResources</id>
                         <goals>
                             <goal>testResources</goal>
@@ -202,16 +174,6 @@
                     <!--uncomment it if you use the undertow-->
                     <packagingExcludes>WEB-INF/lib/tomcat-*.jar</packagingExcludes>
                     <failOnMissingWebXml>false</failOnMissingWebXml>
-                    <webResources>
-                        <webResource>
-                            <targetPath>/app/</targetPath>
-                            <filtering>true</filtering>
-                            <directory>src/main/resources/templates</directory>
-                            <includes>
-                                <include>constants.js</include>
-                            </includes>
-                        </webResource>
-                    </webResources>
                 </configuration>
             </plugin>
         </plugins>
