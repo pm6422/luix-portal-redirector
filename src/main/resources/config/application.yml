@@ -16,7 +16,11 @@ management: # Management http server configuration, used by ManagementServerProp
         web:
             base-path: /management
             exposure:
-                include: ['configprops', 'health', 'metrics', 'prometheus']
+                include:
+                    - configprops
+                    - health
+                    - metrics
+                    - prometheus
     endpoint:
         health:
             enabled: true
